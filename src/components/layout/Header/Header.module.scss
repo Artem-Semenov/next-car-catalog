@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: #fff;
+    margin: 0 10px;
+    transition: 0.3s all;
+    padding: 10px;
+
+    &:hover,
+    &.active {
+      color: purple;
+    }
+  }
+}
