@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 type Props = {};
 const Header: FC = (props: Props) => {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <div className={style.header}>
       <Link className={pathname === "/" ? style.active : ""} href={"/"}>
