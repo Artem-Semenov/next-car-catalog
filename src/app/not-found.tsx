@@ -4,7 +4,28 @@ import Head from "next/head";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "404 not found",
+  openGraph: {
+    countryName: "UA",
+    title: "Next.js",
+    description: "The React Framework for the Web",
+    url: "https://nextjs.org",
+    siteName: "Next.js",
+    images: [
+      {
+        url: "https://nextjs.org/og.png",
+        width: 800,
+        height: 600,
+      },
+      {
+        url: "https://nextjs.org/og-alt.png",
+        width: 1800,
+        height: 1600,
+        alt: "My custom alt",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function NotFound() {
@@ -13,9 +34,6 @@ export default function NotFound() {
       style={{
         textAlign: "center",
       }}>
-      <Head>
-        <title>Not found 404</title>
-      </Head>
       <h2>404 - Not Found</h2>
       <p>Could not find requested resource</p>
       <Link

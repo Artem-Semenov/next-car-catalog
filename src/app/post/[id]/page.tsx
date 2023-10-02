@@ -2,7 +2,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/navigation";
 
-const CarPage: NextPage = () => {
+const PostPage: NextPage = () => {
   const { push, replace } = useRouter();
 
   return (
@@ -23,4 +23,4 @@ const CarPage: NextPage = () => {
     </>
   );
 };
-export default CarPage;
+export default PostPage;
