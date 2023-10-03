@@ -5,7 +5,7 @@ import PostItem from "@/components/ui/PostItem/PostItem";
 
 const Home: FC<IPostData> = ({ posts }) => {
   return (
-    <>
+    <div style={{ maxWidth: "1100px", margin: "auto" }}>
       <h1>Hello world! {posts.length || 0}</h1>
 
       {posts.length
@@ -13,7 +13,7 @@ const Home: FC<IPostData> = ({ posts }) => {
             return <PostItem key={i} post={post} />;
           })
         : "not found"}
-    </>
+    </div>
   );
 };
 export default Home;

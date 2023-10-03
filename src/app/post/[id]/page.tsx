@@ -1,25 +1,28 @@
-"use client";
+import PostItem from "@/components/ui/PostItem/PostItem";
+import { IPostDataSingle } from "@/interfaces/post.interface";
+import { PostsService } from "@/services/post.service";
 import { NextPage } from "next";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-const PostPage: NextPage = () => {
-  const { push, replace } = useRouter();
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const posts = await PostsService.getAll();
+
+  return posts.map((post) => ({
+    id: post.id.toString(),
+  }));
+}
+
+const PostPage = async ({ params }: { params: { id: string } }) => {
+  const { id } = params;
+
+  const post = await PostsService.getById(+id);
 
   return (
     <>
-      <div>CarPage</div>
-      <button
-        onClick={() => {
-          push("/");
-        }}>
-        Go Home
-      </button>
-      <button
-        onClick={() => {
-          replace("/");
-        }}>
-        Go Home replace
-      </button>
+      <div>Post Page</div>
+      <PostItem post={post} />
+
     </>
   );
 };
